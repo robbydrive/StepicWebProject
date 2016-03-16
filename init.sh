@@ -5,3 +5,4 @@ sudo ln -sf /home/box/web/etc/gunicorn.conf /etc/gunicorn.d/test
 gunicorn -b 0.0.0.0:8080 hello &
 cd ask
 gunicorn -b 0.0.0.0:8000 ask.wsgi &
+sudo /etc/init.d/mysql start
