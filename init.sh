@@ -6,3 +6,4 @@ gunicorn -b 0.0.0.0:8080 hello &
 cd ask
 gunicorn -b 0.0.0.0:8000 ask.wsgi &
 sudo /etc/init.d/mysql start
+sudo chmod +x manage.py
