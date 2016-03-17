@@ -7,7 +7,7 @@ class Question(models.Model):
    added_at = models.DateTimeField()
    rating = models.IntegerField(default=0)
    author = models.ForeignKey(User, related_name="questions")
-   likes = models.ManyToManyField(User)
+   likes = models.ManyToManyField(User, related_name="likes")
    class Meta:
       db_table = "qa_questions"
 
