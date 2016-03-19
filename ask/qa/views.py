@@ -50,8 +50,8 @@ def question(request, question_id):
 		question_id = int(question_id)
 	except ValueError:
 		raise Http404
-	question = Question.objects.get(pk=question_id)
-	answers = Answer.objects.all().filter(question = question)
+	q = Question.objects.get(pk=question_id)
+	answers = Answer.objects.all().filter(question = q)
 	return render(request, "question_page.html", {
 		'question': question,
 		'answers': answers,
