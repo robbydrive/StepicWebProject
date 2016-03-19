@@ -53,6 +53,6 @@ def question(request, question_id):
 	q = Question.objects.get(pk=question_id)
 	answers = Answer.objects.all().filter(question = q)
 	return render(request, "question_page.html", {
-		'question': question,
+		'question': q,
 		'answers': answers,
 	})
