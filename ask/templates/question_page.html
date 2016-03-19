@@ -1,0 +1,16 @@
+<!-- templates/question_page.html -->
+<html>
+<body>
+	{% for question in questions %}
+		<h1>{{question.title}}</h1>
+		<p>{{question.text}}</p>
+		<h3>Answers:</h3>
+		<ul>
+		{% for answer in answers %}
+			<li><p>{{answer.text}}</p></li>
+		{% endfor %}
+		</ul>
+	{% endfor %}
+</body>
+</html>
+						
