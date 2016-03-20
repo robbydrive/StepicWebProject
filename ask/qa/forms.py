@@ -3,18 +3,26 @@ from qa.models import *
 
 class AskForm(forms.Form):
 	title = forms.CharField()
-	text = forms.CharField(widget=forms.Textarea)
+	text = forms.CharField()
+
+	def clean_title(self):
+		title = self.cleaned_data['title']
+		return title
+	
+	def clean_text(self):
+		text = self.cleaned_data['text']
+		return text
 	
 	def clean(self):
 		if self.cleaned_data['title'] == self.cleaned_data['text']:
 			raise ValidationError('Same title and text')
 		
 	def save(self):
-		question = Question()
-		question.title = self.cleaned_data['title']
-		question.text = self.cleaned_data['text']
-		question.author= "Roman"
-		question.save()
+		question = Question.objects.create()
+		#question.title = self.cleaned_data['title']
+		#question.text = self.cleaned_data['text']
+		#question.author= "Roman"
+		#question.save()
 		return question
 
 class AnswerForm(forms.Form):

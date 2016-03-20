@@ -67,7 +67,7 @@ def ask(request):
 		form = AskForm(request.POST)
 		if form.is_valid():
 			question = form.save()
-			url = "/question/" + question.id + "/"
+			url = "/question/" + str(question.id) + "/"
 			return HttpResponseRedirect(url)
 	else:
 		form = AskForm()
