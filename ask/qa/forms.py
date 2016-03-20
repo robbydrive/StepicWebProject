@@ -1,5 +1,5 @@
 from django import forms
-from models import Question
+from qa.models import *
 
 class AskForm(forms.Form):
 	title = forms.CharField()
@@ -30,7 +30,7 @@ class AskForm(forms.Form):
 
 class AnswerForm(forms.Form):
 	text = forms.CharField(widget=forms.Textarea)
-	question = Question()
+	question = forms.CharField()
 
 	def clean_text(self):
 		text = self.cleaned_data['text']
@@ -39,11 +39,20 @@ class AnswerForm(forms.Form):
 		else:
 			return text
 
+	def clean_question(self):
+		question = self.cleaned_data['question']
+		try:
+			question = int(question)
+		except:
+			raise ValidationError('Incorrect question id')
+		return question
+
 	def clean(self):
-		if self.cleaned_data['text'] == self.cleaned_data['question'].title:
+		if self.cleaned_data['text'] == str(self.cleaned_data['question']):
 			raise ValidationError('Same answer and question text. You shouldn\'t waste our hard disk memory')
 	
 	def save(self):
-		answer = Answer(**self.cleaned_data)
+		q = Question.objects.get(pk=question)
+		answer = Answer(text=self.text, question=q)
 		answer.save()
 		return answer		

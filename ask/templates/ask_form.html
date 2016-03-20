@@ -1,0 +1,21 @@
+<html>
+<body>
+{% for e in form.non_field_errors %}
+	<h6>{{e}}</h6>
+{% endfor %}
+<form method="post" action="/ask/">
+	<fieldset>
+	{% for field in form %}
+		<div {% if field.errors %} color="red" {% endif %}>
+			<label>{{field.label}}</label>
+			<div>{{field}}</div>
+		</div>
+	{% endfor %}
+	</fieldset>
+	{% csrf_token %}
+	<div>
+		<button type="submit">Save</button>
+	</div>
+</form>
+</body>
+</html>

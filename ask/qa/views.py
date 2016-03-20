@@ -2,6 +2,8 @@ from django.core.paginator import Paginator
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from qa.models import *
+from django.views.decorators.csrf import csrf_exempt
+from qa.forms import *
 
 def test(request, *args, **kwargs):
 	return HttpResponse('OK')
@@ -59,6 +61,7 @@ def question(request, question_id):
 		'form': form
 	})
 
+#@csrf_exempt
 def ask(request):
 	if request.method == "POST":
 		form = AskForm(request.POST)
@@ -73,4 +76,9 @@ def ask(request):
 
 def answer(request):
 	if request.method = "POST":
-		pass
+		form = AnswerForm(request.POST)
+		if form.is_valid():
+			answer = form.save()
+			url = "/question/" + answer.question.id + "/"
+			return HttpResponseRedirect(url)
+

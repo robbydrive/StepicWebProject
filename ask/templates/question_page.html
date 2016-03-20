@@ -4,6 +4,23 @@
 	<h1>{{question.title}}</h1>
 	<p>{{question.text}}</p>
 	<h3>Answers:</h3>
+	{% for e in form.non_field_errors %}
+		<p>{{ e }}</p>
+	{% endfor %}
+	<form method="post" action="/answer/">
+		<fieldset>
+		{% for field in form %}
+		<div {% if field.errors %} color="red" {% endif %}>
+			<label>{{field.label}}</label>
+			<div>{{ field }}</div>
+		</div>
+		{% endfor %}
+		</fieldset>
+		{% csrf_token %}
+		<div>
+			<button type="submit">Save</button>
+		</div>
+	</form>
 	<ul>
 	{% for answer in answers %}
 		<li><p>{{answer.text}}</p></li>
