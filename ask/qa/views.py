@@ -1,5 +1,5 @@
 from django.core.paginator import Paginator
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from qa.models import *
 
@@ -52,7 +52,25 @@ def question(request, question_id):
 		raise Http404
 	q = Question.objects.get(pk=question_id)
 	answers = Answer.objects.all().filter(question = q)
+	form = AnswerForm()
 	return render(request, "question_page.html", {
 		'question': q,
 		'answers': answers,
+		'form': form
 	})
+
+def ask(request):
+	if request.method == "POST":
+		form = AskForm(request.POST)
+		if form.is_valid():
+			question = form.save()
+			return HttpResponseRedirect(question.get_url)
+	else:
+		form = AskForm()
+	return render(request, 'ask_form.html', {
+		'form': form
+	})
+
+def answer(request):
+	if request.method = "POST":
+		pass
