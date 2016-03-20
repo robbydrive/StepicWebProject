@@ -13,6 +13,7 @@ urlpatterns = patterns('',
     url(r'^signup/', 'qa.views.test', name='singup'),
     url(r'^question/(?P<question_id>\d+)/', 'qa.views.question', name='question'),
     url(r'^ask/', 'qa.views.ask', name='ask'),
+    url(r'^answer/', 'qa.views.answer', name='answer'),
     url(r'^popular/', 'qa.views.popular', name='popular'),
     url(r'^new/', 'qa.views.test', name='new'),
     url(r'^$', 'qa.views.main', name='home')
