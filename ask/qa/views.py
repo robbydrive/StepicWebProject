@@ -46,7 +46,7 @@ def popular(request):
 		'paginator': paginator,
 		'page': page,
 	})
-
+@csrf_exempt
 def question(request, question_id):
 	try:
 		question_id = int(question_id)
@@ -61,7 +61,7 @@ def question(request, question_id):
 		'form': form
 	})
 
-#@csrf_exempt
+@csrf_exempt
 def ask(request):
 	if request.method == "POST":
 		form = AskForm(request.POST)
@@ -74,7 +74,7 @@ def ask(request):
 	return render(request, 'ask_form.html', {
 		'form': form
 	})
-
+@csrf_exempt
 def answer(request):
 	if request.method == "POST":
 		form = AnswerForm(request.POST)
