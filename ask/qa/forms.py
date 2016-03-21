@@ -7,18 +7,22 @@ class AskForm(forms.Form):
 
 	def clean_title(self):
 		title = self.cleaned_data['title']
+		print self.cleaned_data, 'after clean_title'
 		return title
 	
 	def clean_text(self):
 		text = self.cleaned_data['text']
+		print self.cleaned_data, 'after clean_text'
 		return text
 	
 	def clean(self):
 		if self.cleaned_data['title'] == self.cleaned_data['text']:
 			raise ValidationError('Same title and text')
+		print self.cleaned_data, 'after clean'
 		
 	def save(self):
 		question = Question.objects.create()
+		print self.cleaned_data, 'in save'
 		#question.title = self.cleaned_data['title']
 		#question.text = self.cleaned_data['text']
 		#question.author= "Roman"
