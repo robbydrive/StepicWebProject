@@ -4,6 +4,7 @@ from django.shortcuts import render
 from qa.models import *
 from django.views.decorators.csrf import csrf_exempt
 from qa.forms import *
+import django.contrib.auth
 
 def test(request, *args, **kwargs):
 	return HttpResponse('OK')
@@ -102,6 +103,7 @@ def login(request):
 		if form.is_valid():
 			user = form.save()
 			if user:
+				login(request, user)
 				return HttpResponseRedirect('/')
 	else:
 		form = LoginForm()

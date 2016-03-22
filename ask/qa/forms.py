@@ -1,6 +1,6 @@
 from django import forms
 from qa.models import *
-
+from django.contrib.auth import authenticate
 class AskForm(forms.Form):
 	title = forms.CharField()
 	text = forms.CharField()
@@ -88,5 +88,5 @@ class LoginForm(forms.Form):
 		user = authenticate(username = self.cleaned_data['username'], password = self.cleaned_data['password'])
 		if user:
 			return user
-		else:
-			raise ValidationError('invalid username/password')
+#		else:
+#			raise ValidationError('invalid username/password')
