@@ -54,20 +54,20 @@ class SignupForm(forms.Form):
 	email = forms.EmailField()
 
 	def clean_username(self):
-		return username
+		return self.cleaned_data['username']
 	
 	def clean_password(self):
-		return password
+		return self.cleaned_data['password'] 
 	
 	def clean_email(self):
-		return email
+		return self.cleaned_data['email'] 
 
 	def clean(self):
 		return self.cleaned_data
 
 	def save(self):
-		user = User.objects.create_user(self.cleaned_data['username'], self.cleaned_data['password)'])
-		user.email = self.cleaned_data(['email'])
+		user = User.objects.create_user(self.cleaned_data['username'], self.cleaned_data['password'])
+		user.email = self.cleaned_data['email']
 		user.save()
 		return user
 
@@ -76,10 +76,10 @@ class LoginForm(forms.Form):
 	password = forms.CharField()
 
 	def clean_username(self):
-		return username
+		return self.cleaned_data['username']
 
 	def clean_password(self):
-		return password
+		return self.cleaned_data['password']
 
 	def clean(self):
 		return self.cleaned_data

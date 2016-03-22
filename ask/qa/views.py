@@ -84,6 +84,7 @@ def answer(request):
 			url = "/question/" + answer.question.id + "/"
 			return HttpResponseRedirect(url)
 
+@csrf_exempt
 def signup(request):
 	if request.method == "POST":
 		form = SignupForm(request.POST)
@@ -94,6 +95,7 @@ def signup(request):
 		form = SignupForm()
 	return render(request, 'signup.html', {'form': form})
 
+@csrf_exempt
 def login(request):
 	if request.method == "POST":
 		form = LoginForm(request.POST)
