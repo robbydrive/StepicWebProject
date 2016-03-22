@@ -4,7 +4,7 @@ from django.shortcuts import render
 from qa.models import *
 from django.views.decorators.csrf import csrf_exempt
 from qa.forms import *
-import django.contrib.auth
+from django.contrib.auth import authenticate, login
 
 def test(request, *args, **kwargs):
 	return HttpResponse('OK')
@@ -100,12 +100,13 @@ def signup(request):
 	return render(request, 'signup.html', {'form': form})
 
 @csrf_exempt
-def login(request):
+def log_in(request):
 	if request.method == "POST":
 		form = LoginForm(request.POST)
 		if form.is_valid():
 			user = form.save()
 			if user:
+				authenticate(user.username, user.password)
 				login(request, user)
 				return HttpResponseRedirect('/')
 	else:

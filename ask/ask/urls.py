@@ -9,7 +9,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
 #    url(r'^admin/', include(admin.site.urls)),
-    url(r'^login/', 'qa.views.login', name='login'),
+    url(r'^login/', 'qa.views.log_in', name='login'),
     url(r'^signup/', 'qa.views.signup', name='singup'),
     url(r'^question/(?P<question_id>\d+)/', 'qa.views.question', name='question'),
     url(r'^ask/', 'qa.views.ask', name='ask'),

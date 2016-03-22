@@ -1,7 +1,7 @@
 <html>
 <body>
 <form method="post" action="/signup/">
-	{% csrftoken %}
+	{% csrf_token %}
 	<fieldset>
 	{% for field in form %}
 	<label>{{field.label}}</label>
