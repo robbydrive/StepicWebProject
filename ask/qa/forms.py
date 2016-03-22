@@ -1,9 +1,12 @@
 from django import forms
 from qa.models import *
 from django.contrib.auth import authenticate
+from django.contrib.auth.models import User
+
 class AskForm(forms.Form):
 	title = forms.CharField()
 	text = forms.CharField()
+	_user = User()
 
 	def clean_title(self):
 		title = self.cleaned_data['title']
@@ -33,6 +36,7 @@ class AskForm(forms.Form):
 class AnswerForm(forms.Form):
 	text = forms.CharField(widget=forms.Textarea)
 	question = forms.IntegerField()
+	_user = User()
 
 	def clean(self):
 		if self.cleaned_data['text'] == str(self.cleaned_data['question']):

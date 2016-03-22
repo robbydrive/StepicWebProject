@@ -66,6 +66,7 @@ def question(request, question_id):
 def ask(request):
 	if request.method == "POST":
 		form = AskForm(request.POST)
+		form._user = request.user
 		if form.is_valid():
 			#print form.cleaned_data, 'before form.save()'
 			question = form.save()
@@ -80,6 +81,7 @@ def ask(request):
 def answer(request):
 	if request.method == "POST":
 		form = AnswerForm(request.POST)
+		form._user = request.user
 		if form.is_valid():
 			answer = form.save()
 			url = "/question/" + answer.question.id + "/"
