@@ -93,7 +93,20 @@ def signup(request):
 		form = SignupForm(request.POST)
 		if form.is_valid():
 			user = form.save()
-			login(request, user)
+			print ''
+			print request.POST['username'], request.POST['password'], 'request.POST'
+			print user.username, user.password, 'user object'
+			print form.cleaned_data['username'], form.cleaned_data['password'], 'form.cleaned_data'
+			p = authenticate(username = request.POST['username'], password = request.POST['password'])
+			u = authenticate(username = user.username, password = user.password)
+			f = authenticate(username = form.cleaned_data['username'], password = form.cleaned_data['password'])
+			print p, 'p'
+			print u, 'u'
+			print f, 'f'
+			print ''
+			print user.username, 'user.username'
+			print p.username, 'p.username'
+			#login(request, user)
 			return HttpResponseRedirect('/')
 	else:
 		form = SignupForm()
