@@ -2,10 +2,9 @@ HTTP/1.1 100 Continue
 
 HTTP/1.1 500 INTERNAL SERVER ERROR
 Server: gunicorn/17.5
-Date: Tue, 22 Mar 2016 21:15:33 GMT
+Date: Tue, 22 Mar 2016 21:54:17 GMT
 Connection: close
 Transfer-Encoding: chunked
-Vary: Cookie
 X-Frame-Options: SAMEORIGIN
 Content-Type: text/html
 
@@ -15,7 +14,7 @@ Content-Type: text/html
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="robots" content="NONE,NOARCHIVE">
-  <title>AttributeError at /signup/</title>
+  <title>TypeError at /signup/</title>
   <style type="text/css">
     html * { padding:0; margin:0; }
     body * { padding:10px 20px; }
@@ -129,8 +128,8 @@ Content-Type: text/html
 </head>
 <body>
 <div id="summary">
-  <h1>AttributeError at /signup/</h1>
-  <pre class="exception_value">&#39;User&#39; object has no attribute &#39;backend&#39;</pre>
+  <h1>TypeError at /signup/</h1>
+  <pre class="exception_value">authenticate() argument after ** must be a mapping, not User</pre>
   <table class="meta">
 
     <tr>
@@ -149,19 +148,19 @@ Content-Type: text/html
 
     <tr>
       <th>Exception Type:</th>
-      <td>AttributeError</td>
+      <td>TypeError</td>
     </tr>
 
 
     <tr>
       <th>Exception Value:</th>
-      <td><pre>&#39;User&#39; object has no attribute &#39;backend&#39;</pre></td>
+      <td><pre>authenticate() argument after ** must be a mapping, not User</pre></td>
     </tr>
 
 
     <tr>
       <th>Exception Location:</th>
-      <td>/usr/lib/python2.7/dist-packages/django/contrib/auth/__init__.py in login, line 85</td>
+      <td>/home/box/web/ask/qa/forms.py in save, line 76</td>
     </tr>
 
     <tr>
@@ -187,7 +186,7 @@ Content-Type: text/html
     </tr>
     <tr>
       <th>Server time:</th>
-      <td>Tue, 22 Mar 2016 21:15:33 +0000</td>
+      <td>Tue, 22 Mar 2016 21:54:17 +0000</td>
     </tr>
   </table>
 </div>
@@ -205,13 +204,13 @@ Content-Type: text/html
           <code>/usr/lib/python2.7/dist-packages/django/core/handlers/base.py</code> in <code>get_response</code>
 
           
-            <div class="context" id="c140150701411216">
+            <div class="context" id="c139655047345792">
               
-                <ol start="105" class="pre-context" id="pre140150701411216"><li onclick="toggle('pre140150701411216', 'post140150701411216')"><pre>                    response = middleware_method(request, callback, callback_args, callback_kwargs)</pre></li><li onclick="toggle('pre140150701411216', 'post140150701411216')"><pre>                    if response:</pre></li><li onclick="toggle('pre140150701411216', 'post140150701411216')"><pre>                        break</pre></li><li onclick="toggle('pre140150701411216', 'post140150701411216')"><pre></pre></li><li onclick="toggle('pre140150701411216', 'post140150701411216')"><pre>            if response is None:</pre></li><li onclick="toggle('pre140150701411216', 'post140150701411216')"><pre>                wrapped_callback = self.make_view_atomic(callback)</pre></li><li onclick="toggle('pre140150701411216', 'post140150701411216')"><pre>                try:</pre></li></ol>
+                <ol start="105" class="pre-context" id="pre139655047345792"><li onclick="toggle('pre139655047345792', 'post139655047345792')"><pre>                    response = middleware_method(request, callback, callback_args, callback_kwargs)</pre></li><li onclick="toggle('pre139655047345792', 'post139655047345792')"><pre>                    if response:</pre></li><li onclick="toggle('pre139655047345792', 'post139655047345792')"><pre>                        break</pre></li><li onclick="toggle('pre139655047345792', 'post139655047345792')"><pre></pre></li><li onclick="toggle('pre139655047345792', 'post139655047345792')"><pre>            if response is None:</pre></li><li onclick="toggle('pre139655047345792', 'post139655047345792')"><pre>                wrapped_callback = self.make_view_atomic(callback)</pre></li><li onclick="toggle('pre139655047345792', 'post139655047345792')"><pre>                try:</pre></li></ol>
               
-              <ol start="112" class="context-line"><li onclick="toggle('pre140150701411216', 'post140150701411216')"><pre>                    response = wrapped_callback(request, *callback_args, **callback_kwargs)</pre> <span>...</span></li></ol>
+              <ol start="112" class="context-line"><li onclick="toggle('pre139655047345792', 'post139655047345792')"><pre>                    response = wrapped_callback(request, *callback_args, **callback_kwargs)</pre> <span>...</span></li></ol>
               
-                <ol start='113' class="post-context" id="post140150701411216"><li onclick="toggle('pre140150701411216', 'post140150701411216')"><pre>                except Exception as e:</pre></li><li onclick="toggle('pre140150701411216', 'post140150701411216')"><pre>                    # If the view raised an exception, run it through exception</pre></li><li onclick="toggle('pre140150701411216', 'post140150701411216')"><pre>                    # middleware, and if the exception middleware returns a</pre></li><li onclick="toggle('pre140150701411216', 'post140150701411216')"><pre>                    # response, use that. Otherwise, reraise the exception.</pre></li><li onclick="toggle('pre140150701411216', 'post140150701411216')"><pre>                    for middleware_method in self._exception_middleware:</pre></li><li onclick="toggle('pre140150701411216', 'post140150701411216')"><pre>                        response = middleware_method(request, e)</pre></li></ol>
+                <ol start='113' class="post-context" id="post139655047345792"><li onclick="toggle('pre139655047345792', 'post139655047345792')"><pre>                except Exception as e:</pre></li><li onclick="toggle('pre139655047345792', 'post139655047345792')"><pre>                    # If the view raised an exception, run it through exception</pre></li><li onclick="toggle('pre139655047345792', 'post139655047345792')"><pre>                    # middleware, and if the exception middleware returns a</pre></li><li onclick="toggle('pre139655047345792', 'post139655047345792')"><pre>                    # response, use that. Otherwise, reraise the exception.</pre></li><li onclick="toggle('pre139655047345792', 'post139655047345792')"><pre>                    for middleware_method in self._exception_middleware:</pre></li><li onclick="toggle('pre139655047345792', 'post139655047345792')"><pre>                        response = middleware_method(request, e)</pre></li></ol>
               
             </div>
           
@@ -219,10 +218,10 @@ Content-Type: text/html
           
             <div class="commands">
                 
-                    <a href="#" onclick="return varToggle(this, '140150701411216')"><span>&#x25b6;</span> Local vars</a>
+                    <a href="#" onclick="return varToggle(this, '139655047345792')"><span>&#x25b6;</span> Local vars</a>
                 
             </div>
-            <table class="vars" id="v140150701411216">
+            <table class="vars" id="v139655047345792">
               <thead>
                 <tr>
                   <th>Variable</th>
@@ -233,7 +232,7 @@ Content-Type: text/html
                 
                   <tr>
                     <td>e</td>
-                    <td class="code"><pre>AttributeError(&quot;&#39;User&#39; object has no attribute &#39;backend&#39;&quot;,)</pre></td>
+                    <td class="code"><pre>TypeError(&#39;authenticate() argument after ** must be a mapping, not User&#39;,)</pre></td>
                   </tr>
                 
                   <tr>
@@ -243,32 +242,32 @@ Content-Type: text/html
                 
                   <tr>
                     <td>resolver_match</td>
-                    <td class="code"><pre>ResolverMatch(func=&lt;function signup at 0x7f7760d13cf8&gt;, args=(), kwargs={}, url_name=&#39;singup&#39;, app_name=&#39;None&#39;, namespace=&#39;&#39;)</pre></td>
+                    <td class="code"><pre>ResolverMatch(func=&lt;function signup at 0x7f03f9883848&gt;, args=(), kwargs={}, url_name=&#39;singup&#39;, app_name=&#39;None&#39;, namespace=&#39;&#39;)</pre></td>
                   </tr>
                 
                   <tr>
                     <td>middleware_method</td>
-                    <td class="code"><pre>&lt;bound method CsrfViewMiddleware.process_view of &lt;django.middleware.csrf.CsrfViewMiddleware object at 0x7f7761942f90&gt;&gt;</pre></td>
+                    <td class="code"><pre>&lt;bound method CsrfViewMiddleware.process_view of &lt;django.middleware.csrf.CsrfViewMiddleware object at 0x7f03fa4b2f90&gt;&gt;</pre></td>
                   </tr>
                 
                   <tr>
                     <td>self</td>
-                    <td class="code"><pre>&lt;django.core.handlers.wsgi.WSGIHandler object at 0x7f7762271bd0&gt;</pre></td>
+                    <td class="code"><pre>&lt;django.core.handlers.wsgi.WSGIHandler object at 0x7f03fade1bd0&gt;</pre></td>
                   </tr>
                 
                   <tr>
                     <td>request</td>
-                    <td class="code"><pre>&quot;&lt;WSGIRequest\npath:/signup/,\nGET:&lt;QueryDict: {}&gt;,\nPOST:&lt;QueryDict: {u&#39;username&#39;: [u&#39;blabla&#39;], u&#39;password&#39;: [u&#39;gogogogo&#39;], u&#39;email&#39;: [u&#39;1@gmail.com&#39;]}&gt;,\nCOOKIES:{},\nMETA:{&#39;CONTENT_LENGTH&#39;: &#39;359&#39;,\n &#39;CONTENT_TYPE&#39;: &#39;multipart/form-data; boundary=------------------------f985246b7d0bc5a1&#39;,\n u&#39;CSRF_COOKIE&#39;: u&#39;XLyzSzKrIMI2XGXZ4aBlyjICfOULrkSz&#39;,\n &#39;HTTP_ACCEPT&#39;: &#39;*/*&#39;,\n &#39;HTTP_EXPECT&#39;: &#39;100-continue&#39;,\n &#39;HTTP_HOST&#39;: &#39;0.0.0.0:8000&#39;,\n &#39;HTTP_USER_AGENT&#39;: &#39;curl/7.35.0&#39;,\n &#39;PATH_INFO&#39;: u&#39;/signup/&#39;,\n &#39;QUERY_STRING&#39;: &#39;&#39;,\n &#39;RAW_URI&#39;: &#39;/signup/&#39;,\n &#39;REMOTE_ADDR&#39;: &#39;127.0.0.1&#39;,\n &#39;REMOTE_PORT&#39;: &#39;38177&#39;,\n &#39;REQUEST_METHOD&#39;: &#39;POST&#39;,\n &#39;SCRIPT_NAME&#39;: u&#39;&#39;,\n &#39;SERVER_NAME&#39;: &#39;0.0.0.0&#39;,\n &#39;SERVER_PORT&#39;: &#39;8000&#39;,\n &#39;SERVER_PROTOCOL&#39;: &#39;HTTP/1.1&#39;,\n &#39;SERVER_SOFTWARE&#39;: &#39;gunicorn/17.5&#39;,\n &#39;gunicorn.socket&#39;: &lt;socket._socketobject object at 0x7f7761a3b520&gt;,\n &#39;wsgi.errors&#39;: &lt;open file &#39;&lt;stderr&gt;&#39;, mode &#39;w&#39; at 0x7f77649bb1e0&gt;,\n &#39;wsgi.file_wrapper&#39;: &lt;class gunicorn.http.wsgi.FileWrapper at 0x7f7762261188&gt;,\n &#39;wsgi.input&#39;: &lt;gunicorn.http.body.Body object at 0x7f77619b6ed0&gt;,\n &#39;wsgi.multiprocess&#39;: False,\n &#39;wsgi.multithread&#39;: False,\n &#39;wsgi.run_once&#39;: False,\n &#39;wsgi.url_scheme&#39;: &#39;http&#39;,\n &#39;wsgi.version&#39;: (1, 0)}&gt;&quot;</pre></td>
+                    <td class="code"><pre>&quot;&lt;WSGIRequest\npath:/signup/,\nGET:&lt;QueryDict: {}&gt;,\nPOST:&lt;QueryDict: {u&#39;username&#39;: [u&#39;blabla&#39;], u&#39;password&#39;: [u&#39;gogogogo&#39;], u&#39;email&#39;: [u&#39;1@gmail.com&#39;]}&gt;,\nCOOKIES:{},\nMETA:{&#39;CONTENT_LENGTH&#39;: &#39;359&#39;,\n &#39;CONTENT_TYPE&#39;: &#39;multipart/form-data; boundary=------------------------9090492133fe2c51&#39;,\n u&#39;CSRF_COOKIE&#39;: u&#39;l9VQ4WrHBs17JM5anQjSomSpqd47dpcI&#39;,\n &#39;HTTP_ACCEPT&#39;: &#39;*/*&#39;,\n &#39;HTTP_EXPECT&#39;: &#39;100-continue&#39;,\n &#39;HTTP_HOST&#39;: &#39;0.0.0.0:8000&#39;,\n &#39;HTTP_USER_AGENT&#39;: &#39;curl/7.35.0&#39;,\n &#39;PATH_INFO&#39;: u&#39;/signup/&#39;,\n &#39;QUERY_STRING&#39;: &#39;&#39;,\n &#39;RAW_URI&#39;: &#39;/signup/&#39;,\n &#39;REMOTE_ADDR&#39;: &#39;127.0.0.1&#39;,\n &#39;REMOTE_PORT&#39;: &#39;40479&#39;,\n &#39;REQUEST_METHOD&#39;: &#39;POST&#39;,\n &#39;SCRIPT_NAME&#39;: u&#39;&#39;,\n &#39;SERVER_NAME&#39;: &#39;0.0.0.0&#39;,\n &#39;SERVER_PORT&#39;: &#39;8000&#39;,\n &#39;SERVER_PROTOCOL&#39;: &#39;HTTP/1.1&#39;,\n &#39;SERVER_SOFTWARE&#39;: &#39;gunicorn/17.5&#39;,\n &#39;gunicorn.socket&#39;: &lt;socket._socketobject object at 0x7f03fa5ab520&gt;,\n &#39;wsgi.errors&#39;: &lt;open file &#39;&lt;stderr&gt;&#39;, mode &#39;w&#39; at 0x7f03fd52b1e0&gt;,\n &#39;wsgi.file_wrapper&#39;: &lt;class gunicorn.http.wsgi.FileWrapper at 0x7f03fadd1188&gt;,\n &#39;wsgi.input&#39;: &lt;gunicorn.http.body.Body object at 0x7f03fa526ed0&gt;,\n &#39;wsgi.multiprocess&#39;: False,\n &#39;wsgi.multithread&#39;: False,\n &#39;wsgi.run_once&#39;: False,\n &#39;wsgi.url_scheme&#39;: &#39;http&#39;,\n &#39;wsgi.version&#39;: (1, 0)}&gt;&quot;</pre></td>
                   </tr>
                 
                   <tr>
                     <td>callback</td>
-                    <td class="code"><pre>&lt;function signup at 0x7f7760d13cf8&gt;</pre></td>
+                    <td class="code"><pre>&lt;function signup at 0x7f03f9883848&gt;</pre></td>
                   </tr>
                 
                   <tr>
                     <td>wrapped_callback</td>
-                    <td class="code"><pre>&lt;function signup at 0x7f7760d13cf8&gt;</pre></td>
+                    <td class="code"><pre>&lt;function signup at 0x7f03f9883848&gt;</pre></td>
                   </tr>
                 
                   <tr>
@@ -300,13 +299,13 @@ Content-Type: text/html
           <code>/usr/lib/python2.7/dist-packages/django/views/decorators/csrf.py</code> in <code>wrapped_view</code>
 
           
-            <div class="context" id="c140150701411000">
+            <div class="context" id="c139655047345720">
               
-                <ol start="50" class="pre-context" id="pre140150701411000"><li onclick="toggle('pre140150701411000', 'post140150701411000')"><pre>    &quot;&quot;&quot;</pre></li><li onclick="toggle('pre140150701411000', 'post140150701411000')"><pre>    Marks a view function as being exempt from the CSRF view protection.</pre></li><li onclick="toggle('pre140150701411000', 'post140150701411000')"><pre>    &quot;&quot;&quot;</pre></li><li onclick="toggle('pre140150701411000', 'post140150701411000')"><pre>    # We could just do view_func.csrf_exempt = True, but decorators</pre></li><li onclick="toggle('pre140150701411000', 'post140150701411000')"><pre>    # are nicer if they don&#39;t have side-effects, so we return a new</pre></li><li onclick="toggle('pre140150701411000', 'post140150701411000')"><pre>    # function.</pre></li><li onclick="toggle('pre140150701411000', 'post140150701411000')"><pre>    def wrapped_view(*args, **kwargs):</pre></li></ol>
+                <ol start="50" class="pre-context" id="pre139655047345720"><li onclick="toggle('pre139655047345720', 'post139655047345720')"><pre>    &quot;&quot;&quot;</pre></li><li onclick="toggle('pre139655047345720', 'post139655047345720')"><pre>    Marks a view function as being exempt from the CSRF view protection.</pre></li><li onclick="toggle('pre139655047345720', 'post139655047345720')"><pre>    &quot;&quot;&quot;</pre></li><li onclick="toggle('pre139655047345720', 'post139655047345720')"><pre>    # We could just do view_func.csrf_exempt = True, but decorators</pre></li><li onclick="toggle('pre139655047345720', 'post139655047345720')"><pre>    # are nicer if they don&#39;t have side-effects, so we return a new</pre></li><li onclick="toggle('pre139655047345720', 'post139655047345720')"><pre>    # function.</pre></li><li onclick="toggle('pre139655047345720', 'post139655047345720')"><pre>    def wrapped_view(*args, **kwargs):</pre></li></ol>
               
-              <ol start="57" class="context-line"><li onclick="toggle('pre140150701411000', 'post140150701411000')"><pre>        return view_func(*args, **kwargs)</pre> <span>...</span></li></ol>
+              <ol start="57" class="context-line"><li onclick="toggle('pre139655047345720', 'post139655047345720')"><pre>        return view_func(*args, **kwargs)</pre> <span>...</span></li></ol>
               
-                <ol start='58' class="post-context" id="post140150701411000"><li onclick="toggle('pre140150701411000', 'post140150701411000')"><pre>    wrapped_view.csrf_exempt = True</pre></li><li onclick="toggle('pre140150701411000', 'post140150701411000')"><pre>    return wraps(view_func, assigned=available_attrs(view_func))(wrapped_view)</pre></li></ol>
+                <ol start='58' class="post-context" id="post139655047345720"><li onclick="toggle('pre139655047345720', 'post139655047345720')"><pre>    wrapped_view.csrf_exempt = True</pre></li><li onclick="toggle('pre139655047345720', 'post139655047345720')"><pre>    return wraps(view_func, assigned=available_attrs(view_func))(wrapped_view)</pre></li></ol>
               
             </div>
           
@@ -314,10 +313,10 @@ Content-Type: text/html
           
             <div class="commands">
                 
-                    <a href="#" onclick="return varToggle(this, '140150701411000')"><span>&#x25b6;</span> Local vars</a>
+                    <a href="#" onclick="return varToggle(this, '139655047345720')"><span>&#x25b6;</span> Local vars</a>
                 
             </div>
-            <table class="vars" id="v140150701411000">
+            <table class="vars" id="v139655047345720">
               <thead>
                 <tr>
                   <th>Variable</th>
@@ -334,8 +333,8 @@ GET:&lt;QueryDict: {}&gt;,
 POST:&lt;QueryDict: {u&#39;username&#39;: [u&#39;blabla&#39;], u&#39;password&#39;: [u&#39;gogogogo&#39;], u&#39;email&#39;: [u&#39;1@gmail.com&#39;]}&gt;,
 COOKIES:{},
 META:{&#39;CONTENT_LENGTH&#39;: &#39;359&#39;,
- &#39;CONTENT_TYPE&#39;: &#39;multipart/form-data; boundary=------------------------f985246b7d0bc5a1&#39;,
- u&#39;CSRF_COOKIE&#39;: u&#39;XLyzSzKrIMI2XGXZ4aBlyjICfOULrkSz&#39;,
+ &#39;CONTENT_TYPE&#39;: &#39;multipart/form-data; boundary=------------------------9090492133fe2c51&#39;,
+ u&#39;CSRF_COOKIE&#39;: u&#39;l9VQ4WrHBs17JM5anQjSomSpqd47dpcI&#39;,
  &#39;HTTP_ACCEPT&#39;: &#39;*/*&#39;,
  &#39;HTTP_EXPECT&#39;: &#39;100-continue&#39;,
  &#39;HTTP_HOST&#39;: &#39;0.0.0.0:8000&#39;,
@@ -344,17 +343,17 @@ META:{&#39;CONTENT_LENGTH&#39;: &#39;359&#39;,
  &#39;QUERY_STRING&#39;: &#39;&#39;,
  &#39;RAW_URI&#39;: &#39;/signup/&#39;,
  &#39;REMOTE_ADDR&#39;: &#39;127.0.0.1&#39;,
- &#39;REMOTE_PORT&#39;: &#39;38177&#39;,
+ &#39;REMOTE_PORT&#39;: &#39;40479&#39;,
  &#39;REQUEST_METHOD&#39;: &#39;POST&#39;,
  &#39;SCRIPT_NAME&#39;: u&#39;&#39;,
  &#39;SERVER_NAME&#39;: &#39;0.0.0.0&#39;,
  &#39;SERVER_PORT&#39;: &#39;8000&#39;,
  &#39;SERVER_PROTOCOL&#39;: &#39;HTTP/1.1&#39;,
  &#39;SERVER_SOFTWARE&#39;: &#39;gunicorn/17.5&#39;,
- &#39;gunicorn.socket&#39;: &lt;socket._socketobject object at 0x7f7761a3b520&gt;,
- &#39;wsgi.errors&#39;: &lt;open file &#39;&lt;stderr&gt;&#39;, mode &#39;w&#39; at 0x7f77649bb1e0&gt;,
- &#39;wsgi.file_wrapper&#39;: &lt;class gunicorn.http.wsgi.FileWrapper at 0x7f7762261188&gt;,
- &#39;wsgi.input&#39;: &lt;gunicorn.http.body.Body object at 0x7f77619b6ed0&gt;,
+ &#39;gunicorn.socket&#39;: &lt;socket._socketobject object at 0x7f03fa5ab520&gt;,
+ &#39;wsgi.errors&#39;: &lt;open file &#39;&lt;stderr&gt;&#39;, mode &#39;w&#39; at 0x7f03fd52b1e0&gt;,
+ &#39;wsgi.file_wrapper&#39;: &lt;class gunicorn.http.wsgi.FileWrapper at 0x7f03fadd1188&gt;,
+ &#39;wsgi.input&#39;: &lt;gunicorn.http.body.Body object at 0x7f03fa526ed0&gt;,
  &#39;wsgi.multiprocess&#39;: False,
  &#39;wsgi.multithread&#39;: False,
  &#39;wsgi.run_once&#39;: False,
@@ -364,7 +363,7 @@ META:{&#39;CONTENT_LENGTH&#39;: &#39;359&#39;,
                 
                   <tr>
                     <td>view_func</td>
-                    <td class="code"><pre>&lt;function signup at 0x7f7760d13398&gt;</pre></td>
+                    <td class="code"><pre>&lt;function signup at 0x7f03f9883cf8&gt;</pre></td>
                   </tr>
                 
                   <tr>
@@ -381,13 +380,13 @@ META:{&#39;CONTENT_LENGTH&#39;: &#39;359&#39;,
           <code>/home/box/web/ask/qa/views.py</code> in <code>signup</code>
 
           
-            <div class="context" id="c140150701411144">
+            <div class="context" id="c139655047345648">
               
-                <ol start="89" class="pre-context" id="pre140150701411144"><li onclick="toggle('pre140150701411144', 'post140150701411144')"><pre></pre></li><li onclick="toggle('pre140150701411144', 'post140150701411144')"><pre>@csrf_exempt</pre></li><li onclick="toggle('pre140150701411144', 'post140150701411144')"><pre>def signup(request):</pre></li><li onclick="toggle('pre140150701411144', 'post140150701411144')"><pre>	if request.method == &quot;POST&quot;:</pre></li><li onclick="toggle('pre140150701411144', 'post140150701411144')"><pre>		form = SignupForm(request.POST)</pre></li><li onclick="toggle('pre140150701411144', 'post140150701411144')"><pre>		if form.is_valid():</pre></li><li onclick="toggle('pre140150701411144', 'post140150701411144')"><pre>			user = form.save()</pre></li></ol>
+                <ol start="88" class="pre-context" id="pre139655047345648"><li onclick="toggle('pre139655047345648', 'post139655047345648')"><pre>			return HttpResponseRedirect(url)</pre></li><li onclick="toggle('pre139655047345648', 'post139655047345648')"><pre></pre></li><li onclick="toggle('pre139655047345648', 'post139655047345648')"><pre>@csrf_exempt</pre></li><li onclick="toggle('pre139655047345648', 'post139655047345648')"><pre>def signup(request):</pre></li><li onclick="toggle('pre139655047345648', 'post139655047345648')"><pre>	if request.method == &quot;POST&quot;:</pre></li><li onclick="toggle('pre139655047345648', 'post139655047345648')"><pre>		form = SignupForm(request.POST)</pre></li><li onclick="toggle('pre139655047345648', 'post139655047345648')"><pre>		if form.is_valid():</pre></li></ol>
               
-              <ol start="96" class="context-line"><li onclick="toggle('pre140150701411144', 'post140150701411144')"><pre>			login(request, user)</pre> <span>...</span></li></ol>
+              <ol start="95" class="context-line"><li onclick="toggle('pre139655047345648', 'post139655047345648')"><pre>			user = form.save()</pre> <span>...</span></li></ol>
               
-                <ol start='97' class="post-context" id="post140150701411144"><li onclick="toggle('pre140150701411144', 'post140150701411144')"><pre>			return HttpResponseRedirect(&#39;/&#39;)</pre></li><li onclick="toggle('pre140150701411144', 'post140150701411144')"><pre>	else:</pre></li><li onclick="toggle('pre140150701411144', 'post140150701411144')"><pre>		form = SignupForm()</pre></li><li onclick="toggle('pre140150701411144', 'post140150701411144')"><pre>	return render(request, &#39;signup.html&#39;, {&#39;form&#39;: form})</pre></li><li onclick="toggle('pre140150701411144', 'post140150701411144')"><pre></pre></li><li onclick="toggle('pre140150701411144', 'post140150701411144')"><pre>@csrf_exempt</pre></li></ol>
+                <ol start='96' class="post-context" id="post139655047345648"><li onclick="toggle('pre139655047345648', 'post139655047345648')"><pre>			login(request, user)</pre></li><li onclick="toggle('pre139655047345648', 'post139655047345648')"><pre>			return HttpResponseRedirect(&#39;/&#39;)</pre></li><li onclick="toggle('pre139655047345648', 'post139655047345648')"><pre>	else:</pre></li><li onclick="toggle('pre139655047345648', 'post139655047345648')"><pre>		form = SignupForm()</pre></li><li onclick="toggle('pre139655047345648', 'post139655047345648')"><pre>	return render(request, &#39;signup.html&#39;, {&#39;form&#39;: form})</pre></li><li onclick="toggle('pre139655047345648', 'post139655047345648')"><pre></pre></li></ol>
               
             </div>
           
@@ -395,10 +394,10 @@ META:{&#39;CONTENT_LENGTH&#39;: &#39;359&#39;,
           
             <div class="commands">
                 
-                    <a href="#" onclick="return varToggle(this, '140150701411144')"><span>&#x25b6;</span> Local vars</a>
+                    <a href="#" onclick="return varToggle(this, '139655047345648')"><span>&#x25b6;</span> Local vars</a>
                 
             </div>
-            <table class="vars" id="v140150701411144">
+            <table class="vars" id="v139655047345648">
               <thead>
                 <tr>
                   <th>Variable</th>
@@ -409,17 +408,12 @@ META:{&#39;CONTENT_LENGTH&#39;: &#39;359&#39;,
                 
                   <tr>
                     <td>request</td>
-                    <td class="code"><pre>&quot;&lt;WSGIRequest\npath:/signup/,\nGET:&lt;QueryDict: {}&gt;,\nPOST:&lt;QueryDict: {u&#39;username&#39;: [u&#39;blabla&#39;], u&#39;password&#39;: [u&#39;gogogogo&#39;], u&#39;email&#39;: [u&#39;1@gmail.com&#39;]}&gt;,\nCOOKIES:{},\nMETA:{&#39;CONTENT_LENGTH&#39;: &#39;359&#39;,\n &#39;CONTENT_TYPE&#39;: &#39;multipart/form-data; boundary=------------------------f985246b7d0bc5a1&#39;,\n u&#39;CSRF_COOKIE&#39;: u&#39;XLyzSzKrIMI2XGXZ4aBlyjICfOULrkSz&#39;,\n &#39;HTTP_ACCEPT&#39;: &#39;*/*&#39;,\n &#39;HTTP_EXPECT&#39;: &#39;100-continue&#39;,\n &#39;HTTP_HOST&#39;: &#39;0.0.0.0:8000&#39;,\n &#39;HTTP_USER_AGENT&#39;: &#39;curl/7.35.0&#39;,\n &#39;PATH_INFO&#39;: u&#39;/signup/&#39;,\n &#39;QUERY_STRING&#39;: &#39;&#39;,\n &#39;RAW_URI&#39;: &#39;/signup/&#39;,\n &#39;REMOTE_ADDR&#39;: &#39;127.0.0.1&#39;,\n &#39;REMOTE_PORT&#39;: &#39;38177&#39;,\n &#39;REQUEST_METHOD&#39;: &#39;POST&#39;,\n &#39;SCRIPT_NAME&#39;: u&#39;&#39;,\n &#39;SERVER_NAME&#39;: &#39;0.0.0.0&#39;,\n &#39;SERVER_PORT&#39;: &#39;8000&#39;,\n &#39;SERVER_PROTOCOL&#39;: &#39;HTTP/1.1&#39;,\n &#39;SERVER_SOFTWARE&#39;: &#39;gunicorn/17.5&#39;,\n &#39;gunicorn.socket&#39;: &lt;socket._socketobject object at 0x7f7761a3b520&gt;,\n &#39;wsgi.errors&#39;: &lt;open file &#39;&lt;stderr&gt;&#39;, mode &#39;w&#39; at 0x7f77649bb1e0&gt;,\n &#39;wsgi.file_wrapper&#39;: &lt;class gunicorn.http.wsgi.FileWrapper at 0x7f7762261188&gt;,\n &#39;wsgi.input&#39;: &lt;gunicorn.http.body.Body object at 0x7f77619b6ed0&gt;,\n &#39;wsgi.multiprocess&#39;: False,\n &#39;wsgi.multithread&#39;: False,\n &#39;wsgi.run_once&#39;: False,\n &#39;wsgi.url_scheme&#39;: &#39;http&#39;,\n &#39;wsgi.version&#39;: (1, 0)}&gt;&quot;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>user</td>
-                    <td class="code"><pre>&lt;User: blabla&gt;</pre></td>
+                    <td class="code"><pre>&quot;&lt;WSGIRequest\npath:/signup/,\nGET:&lt;QueryDict: {}&gt;,\nPOST:&lt;QueryDict: {u&#39;username&#39;: [u&#39;blabla&#39;], u&#39;password&#39;: [u&#39;gogogogo&#39;], u&#39;email&#39;: [u&#39;1@gmail.com&#39;]}&gt;,\nCOOKIES:{},\nMETA:{&#39;CONTENT_LENGTH&#39;: &#39;359&#39;,\n &#39;CONTENT_TYPE&#39;: &#39;multipart/form-data; boundary=------------------------9090492133fe2c51&#39;,\n u&#39;CSRF_COOKIE&#39;: u&#39;l9VQ4WrHBs17JM5anQjSomSpqd47dpcI&#39;,\n &#39;HTTP_ACCEPT&#39;: &#39;*/*&#39;,\n &#39;HTTP_EXPECT&#39;: &#39;100-continue&#39;,\n &#39;HTTP_HOST&#39;: &#39;0.0.0.0:8000&#39;,\n &#39;HTTP_USER_AGENT&#39;: &#39;curl/7.35.0&#39;,\n &#39;PATH_INFO&#39;: u&#39;/signup/&#39;,\n &#39;QUERY_STRING&#39;: &#39;&#39;,\n &#39;RAW_URI&#39;: &#39;/signup/&#39;,\n &#39;REMOTE_ADDR&#39;: &#39;127.0.0.1&#39;,\n &#39;REMOTE_PORT&#39;: &#39;40479&#39;,\n &#39;REQUEST_METHOD&#39;: &#39;POST&#39;,\n &#39;SCRIPT_NAME&#39;: u&#39;&#39;,\n &#39;SERVER_NAME&#39;: &#39;0.0.0.0&#39;,\n &#39;SERVER_PORT&#39;: &#39;8000&#39;,\n &#39;SERVER_PROTOCOL&#39;: &#39;HTTP/1.1&#39;,\n &#39;SERVER_SOFTWARE&#39;: &#39;gunicorn/17.5&#39;,\n &#39;gunicorn.socket&#39;: &lt;socket._socketobject object at 0x7f03fa5ab520&gt;,\n &#39;wsgi.errors&#39;: &lt;open file &#39;&lt;stderr&gt;&#39;, mode &#39;w&#39; at 0x7f03fd52b1e0&gt;,\n &#39;wsgi.file_wrapper&#39;: &lt;class gunicorn.http.wsgi.FileWrapper at 0x7f03fadd1188&gt;,\n &#39;wsgi.input&#39;: &lt;gunicorn.http.body.Body object at 0x7f03fa526ed0&gt;,\n &#39;wsgi.multiprocess&#39;: False,\n &#39;wsgi.multithread&#39;: False,\n &#39;wsgi.run_once&#39;: False,\n &#39;wsgi.url_scheme&#39;: &#39;http&#39;,\n &#39;wsgi.version&#39;: (1, 0)}&gt;&quot;</pre></td>
                   </tr>
                 
                   <tr>
                     <td>form</td>
-                    <td class="code"><pre>&lt;qa.forms.SignupForm object at 0x7f7760ca0350&gt;</pre></td>
+                    <td class="code"><pre>&lt;qa.forms.SignupForm object at 0x7f03f98113d0&gt;</pre></td>
                   </tr>
                 
               </tbody>
@@ -427,17 +421,17 @@ META:{&#39;CONTENT_LENGTH&#39;: &#39;359&#39;,
           
         </li>
       
-        <li class="frame django">
-          <code>/usr/lib/python2.7/dist-packages/django/contrib/auth/__init__.py</code> in <code>login</code>
+        <li class="frame user">
+          <code>/home/box/web/ask/qa/forms.py</code> in <code>save</code>
 
           
-            <div class="context" id="c140150701411072">
+            <div class="context" id="c139655047345576">
               
-                <ol start="78" class="pre-context" id="pre140150701411072"><li onclick="toggle('pre140150701411072', 'post140150701411072')"><pre>            # To avoid reusing another user&#39;s session, create a new, empty</pre></li><li onclick="toggle('pre140150701411072', 'post140150701411072')"><pre>            # session if the existing session corresponds to a different</pre></li><li onclick="toggle('pre140150701411072', 'post140150701411072')"><pre>            # authenticated user.</pre></li><li onclick="toggle('pre140150701411072', 'post140150701411072')"><pre>            request.session.flush()</pre></li><li onclick="toggle('pre140150701411072', 'post140150701411072')"><pre>    else:</pre></li><li onclick="toggle('pre140150701411072', 'post140150701411072')"><pre>        request.session.cycle_key()</pre></li><li onclick="toggle('pre140150701411072', 'post140150701411072')"><pre>    request.session[SESSION_KEY] = user.pk</pre></li></ol>
+                <ol start="69" class="pre-context" id="pre139655047345576"><li onclick="toggle('pre139655047345576', 'post139655047345576')"><pre>	def clean(self):</pre></li><li onclick="toggle('pre139655047345576', 'post139655047345576')"><pre>		return self.cleaned_data</pre></li><li onclick="toggle('pre139655047345576', 'post139655047345576')"><pre></pre></li><li onclick="toggle('pre139655047345576', 'post139655047345576')"><pre>	def save(self):</pre></li><li onclick="toggle('pre139655047345576', 'post139655047345576')"><pre>		user = User.objects.create_user(self.cleaned_data[&#39;username&#39;], self.cleaned_data[&#39;password&#39;])</pre></li><li onclick="toggle('pre139655047345576', 'post139655047345576')"><pre>		user.email = self.cleaned_data[&#39;email&#39;]</pre></li><li onclick="toggle('pre139655047345576', 'post139655047345576')"><pre>		user.save()</pre></li></ol>
               
-              <ol start="85" class="context-line"><li onclick="toggle('pre140150701411072', 'post140150701411072')"><pre>    request.session[BACKEND_SESSION_KEY] = user.backend</pre> <span>...</span></li></ol>
+              <ol start="76" class="context-line"><li onclick="toggle('pre139655047345576', 'post139655047345576')"><pre>		user = authenticate(**user)</pre> <span>...</span></li></ol>
               
-                <ol start='86' class="post-context" id="post140150701411072"><li onclick="toggle('pre140150701411072', 'post140150701411072')"><pre>    if hasattr(request, &#39;user&#39;):</pre></li><li onclick="toggle('pre140150701411072', 'post140150701411072')"><pre>        request.user = user</pre></li><li onclick="toggle('pre140150701411072', 'post140150701411072')"><pre>    rotate_token(request)</pre></li><li onclick="toggle('pre140150701411072', 'post140150701411072')"><pre>    user_logged_in.send(sender=user.__class__, request=request, user=user)</pre></li><li onclick="toggle('pre140150701411072', 'post140150701411072')"><pre></pre></li><li onclick="toggle('pre140150701411072', 'post140150701411072')"><pre></pre></li></ol>
+                <ol start='77' class="post-context" id="post139655047345576"><li onclick="toggle('pre139655047345576', 'post139655047345576')"><pre>		print user.username, user.is_active()</pre></li><li onclick="toggle('pre139655047345576', 'post139655047345576')"><pre>		return user</pre></li><li onclick="toggle('pre139655047345576', 'post139655047345576')"><pre></pre></li><li onclick="toggle('pre139655047345576', 'post139655047345576')"><pre>class LoginForm(forms.Form):</pre></li><li onclick="toggle('pre139655047345576', 'post139655047345576')"><pre>	username = forms.CharField()</pre></li><li onclick="toggle('pre139655047345576', 'post139655047345576')"><pre>	password = forms.CharField()</pre></li></ol>
               
             </div>
           
@@ -445,10 +439,10 @@ META:{&#39;CONTENT_LENGTH&#39;: &#39;359&#39;,
           
             <div class="commands">
                 
-                    <a href="#" onclick="return varToggle(this, '140150701411072')"><span>&#x25b6;</span> Local vars</a>
+                    <a href="#" onclick="return varToggle(this, '139655047345576')"><span>&#x25b6;</span> Local vars</a>
                 
             </div>
-            <table class="vars" id="v140150701411072">
+            <table class="vars" id="v139655047345576">
               <thead>
                 <tr>
                   <th>Variable</th>
@@ -458,8 +452,8 @@ META:{&#39;CONTENT_LENGTH&#39;: &#39;359&#39;,
               <tbody>
                 
                   <tr>
-                    <td>request</td>
-                    <td class="code"><pre>&quot;&lt;WSGIRequest\npath:/signup/,\nGET:&lt;QueryDict: {}&gt;,\nPOST:&lt;QueryDict: {u&#39;username&#39;: [u&#39;blabla&#39;], u&#39;password&#39;: [u&#39;gogogogo&#39;], u&#39;email&#39;: [u&#39;1@gmail.com&#39;]}&gt;,\nCOOKIES:{},\nMETA:{&#39;CONTENT_LENGTH&#39;: &#39;359&#39;,\n &#39;CONTENT_TYPE&#39;: &#39;multipart/form-data; boundary=------------------------f985246b7d0bc5a1&#39;,\n u&#39;CSRF_COOKIE&#39;: u&#39;XLyzSzKrIMI2XGXZ4aBlyjICfOULrkSz&#39;,\n &#39;HTTP_ACCEPT&#39;: &#39;*/*&#39;,\n &#39;HTTP_EXPECT&#39;: &#39;100-continue&#39;,\n &#39;HTTP_HOST&#39;: &#39;0.0.0.0:8000&#39;,\n &#39;HTTP_USER_AGENT&#39;: &#39;curl/7.35.0&#39;,\n &#39;PATH_INFO&#39;: u&#39;/signup/&#39;,\n &#39;QUERY_STRING&#39;: &#39;&#39;,\n &#39;RAW_URI&#39;: &#39;/signup/&#39;,\n &#39;REMOTE_ADDR&#39;: &#39;127.0.0.1&#39;,\n &#39;REMOTE_PORT&#39;: &#39;38177&#39;,\n &#39;REQUEST_METHOD&#39;: &#39;POST&#39;,\n &#39;SCRIPT_NAME&#39;: u&#39;&#39;,\n &#39;SERVER_NAME&#39;: &#39;0.0.0.0&#39;,\n &#39;SERVER_PORT&#39;: &#39;8000&#39;,\n &#39;SERVER_PROTOCOL&#39;: &#39;HTTP/1.1&#39;,\n &#39;SERVER_SOFTWARE&#39;: &#39;gunicorn/17.5&#39;,\n &#39;gunicorn.socket&#39;: &lt;socket._socketobject object at 0x7f7761a3b520&gt;,\n &#39;wsgi.errors&#39;: &lt;open file &#39;&lt;stderr&gt;&#39;, mode &#39;w&#39; at 0x7f77649bb1e0&gt;,\n &#39;wsgi.file_wrapper&#39;: &lt;class gunicorn.http.wsgi.FileWrapper at 0x7f7762261188&gt;,\n &#39;wsgi.input&#39;: &lt;gunicorn.http.body.Body object at 0x7f77619b6ed0&gt;,\n &#39;wsgi.multiprocess&#39;: False,\n &#39;wsgi.multithread&#39;: False,\n &#39;wsgi.run_once&#39;: False,\n &#39;wsgi.url_scheme&#39;: &#39;http&#39;,\n &#39;wsgi.version&#39;: (1, 0)}&gt;&quot;</pre></td>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;qa.forms.SignupForm object at 0x7f03f98113d0&gt;</pre></td>
                   </tr>
                 
                   <tr>
@@ -479,7 +473,7 @@ META:{&#39;CONTENT_LENGTH&#39;: &#39;359&#39;,
 
   <div id="pastebinTraceback" class="pastebin">
     <input type="hidden" name="language" value="PythonConsole">
-    <input type="hidden" name="title" value="AttributeError at /signup/">
+    <input type="hidden" name="title" value="TypeError at /signup/">
     <input type="hidden" name="source" value="Django Dpaste Agent">
     <input type="hidden" name="poster" value="Django">
     <textarea name="content" id="traceback_area" cols="140" rows="25">
@@ -514,12 +508,12 @@ File "/usr/lib/python2.7/dist-packages/django/core/handlers/base.py" in get_resp
 File "/usr/lib/python2.7/dist-packages/django/views/decorators/csrf.py" in wrapped_view
   57.         return view_func(*args, **kwargs)
 File "/home/box/web/ask/qa/views.py" in signup
-  96. 			login(request, user)
-File "/usr/lib/python2.7/dist-packages/django/contrib/auth/__init__.py" in login
-  85.     request.session[BACKEND_SESSION_KEY] = user.backend
+  95. 			user = form.save()
+File "/home/box/web/ask/qa/forms.py" in save
+  76. 		user = authenticate(**user)
 
-Exception Type: AttributeError at /signup/
-Exception Value: &#39;User&#39; object has no attribute &#39;backend&#39;
+Exception Type: TypeError at /signup/
+Exception Value: authenticate() argument after ** must be a mapping, not User
 </textarea>
   <br><br>
   <input type="submit" value="Share this traceback on a public Web site">
@@ -615,7 +609,7 @@ Exception Value: &#39;User&#39; object has no attribute &#39;backend&#39;
       
         <tr>
           <td>wsgi.input</td>
-          <td class="code"><pre>&lt;gunicorn.http.body.Body object at 0x7f77619b6ed0&gt;</pre></td>
+          <td class="code"><pre>&lt;gunicorn.http.body.Body object at 0x7f03fa526ed0&gt;</pre></td>
         </tr>
       
         <tr>
@@ -665,7 +659,7 @@ Exception Value: &#39;User&#39; object has no attribute &#39;backend&#39;
       
         <tr>
           <td>REMOTE_PORT</td>
-          <td class="code"><pre>&#39;38177&#39;</pre></td>
+          <td class="code"><pre>&#39;40479&#39;</pre></td>
         </tr>
       
         <tr>
@@ -685,7 +679,7 @@ Exception Value: &#39;User&#39; object has no attribute &#39;backend&#39;
       
         <tr>
           <td>wsgi.errors</td>
-          <td class="code"><pre>&lt;open file &#39;&lt;stderr&gt;&#39;, mode &#39;w&#39; at 0x7f77649bb1e0&gt;</pre></td>
+          <td class="code"><pre>&lt;open file &#39;&lt;stderr&gt;&#39;, mode &#39;w&#39; at 0x7f03fd52b1e0&gt;</pre></td>
         </tr>
       
         <tr>
@@ -700,7 +694,7 @@ Exception Value: &#39;User&#39; object has no attribute &#39;backend&#39;
       
         <tr>
           <td>gunicorn.socket</td>
-          <td class="code"><pre>&lt;socket._socketobject object at 0x7f7761a3b520&gt;</pre></td>
+          <td class="code"><pre>&lt;socket._socketobject object at 0x7f03fa5ab520&gt;</pre></td>
         </tr>
       
         <tr>
@@ -710,7 +704,7 @@ Exception Value: &#39;User&#39; object has no attribute &#39;backend&#39;
       
         <tr>
           <td>CONTENT_TYPE</td>
-          <td class="code"><pre>&#39;multipart/form-data; boundary=------------------------f985246b7d0bc5a1&#39;</pre></td>
+          <td class="code"><pre>&#39;multipart/form-data; boundary=------------------------9090492133fe2c51&#39;</pre></td>
         </tr>
       
         <tr>
@@ -720,7 +714,7 @@ Exception Value: &#39;User&#39; object has no attribute &#39;backend&#39;
       
         <tr>
           <td>CSRF_COOKIE</td>
-          <td class="code"><pre>u&#39;XLyzSzKrIMI2XGXZ4aBlyjICfOULrkSz&#39;</pre></td>
+          <td class="code"><pre>u&#39;l9VQ4WrHBs17JM5anQjSomSpqd47dpcI&#39;</pre></td>
         </tr>
       
     </tbody>

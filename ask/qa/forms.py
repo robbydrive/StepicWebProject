@@ -73,6 +73,8 @@ class SignupForm(forms.Form):
 		user = User.objects.create_user(self.cleaned_data['username'], self.cleaned_data['password'])
 		user.email = self.cleaned_data['email']
 		user.save()
+		user = authenticate(**user)
+		print user.username, user.is_active()
 		return user
 
 class LoginForm(forms.Form):

@@ -106,7 +106,6 @@ def log_in(request):
 		if form.is_valid():
 			user = form.save()
 			if user:
-				authenticate(user.username, user.password)
 				login(request, user)
 				return HttpResponseRedirect('/')
 	else:
