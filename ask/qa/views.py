@@ -94,6 +94,7 @@ def signup(request):
 		if form.is_valid():
 			user = form.save()
 			print ''
+			print user.username, 'attr', user.get_username(), 'meth'
 			print request.POST['username'], request.POST['password'], 'request.POST'
 			print user.username, user.password, 'user object'
 			print form.cleaned_data['username'], form.cleaned_data['password'], 'form.cleaned_data'
