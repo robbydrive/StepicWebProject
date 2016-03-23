@@ -26,11 +26,16 @@ class AskForm(forms.Form):
 		
 	def save(self):
 		question = Question.objects.create(**self.cleaned_data)
+		print self._user, 'in ask form'
+		print self._user.is_anonymous(), 'anonymous in ask form'
 		#print self.cleaned_data, 'in save'
 		#question.title = self.cleaned_data['title']
 		#question.text = self.cleaned_data['text']
-		#question.author= "Roman"
-		#question.save()
+		if (self._user is not None) and (self._user.is_anonymous() == False):
+			question.author = self._user
+		#else:
+		#	question.author = User(username="")
+		question.save()
 		return question
 
 class AnswerForm(forms.Form):
@@ -48,7 +53,11 @@ class AnswerForm(forms.Form):
 		answer = Answer()
 		answer.text = self.cleaned_data['text']
 		answer.question = q
-		answet.author = "Romain"
+		print self._user, 'in answer form'
+		if self._user is not None and self._user.is_anonymous() == False:
+			answer.author = self._user
+		#else:
+		#	answer.author = "Anonymous user"
 		answer.save()
 		return answer
 
@@ -93,5 +102,5 @@ class LoginForm(forms.Form):
 		user = authenticate(username = self.cleaned_data['username'], password = self.cleaned_data['password'])
 		if user:
 			return user
-#		else:
-#			raise ValidationError('invalid username/password')
+		else:
+			raise ValidationError('invalid username/password')
